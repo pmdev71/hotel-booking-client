@@ -4,7 +4,7 @@ import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
 
 initializeAuthentication();
 
-const useFirebase = () =>{
+const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
@@ -13,49 +13,39 @@ const useFirebase = () =>{
     const signInUsingGoogle = () => {
         setIsLoading(true);
         const googleProvider = new GoogleAuthProvider();
+        return signInWithPopup(auth, googleProvider);
 
-        signInWithPopup(auth, googleProvider)
-        .then(result =>{
-            setUser(result.user);
-        })
-        .catch((error) => {
-            setError(error.message);
-        })
-        .catch((error) => {
-            setError(error.message);
-        })
-        .finally(() => setIsLoading(false));
-    } 
+    }
 
-    const signInWithPassword = (email, password) =>{
+    const signInWithPassword = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch((error) => {
-            setError(error.message);
-        })
-        .finally(() => setIsLoading(false));
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                setError(error.message);
+            })
+            .finally(() => setIsLoading(false));
     };
 
     const logInWithPassword = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);  
-        })
-        .catch((error) => {
-            setError(error.message);
-        });
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                setError(error.message);
+            });
     };
 
-    useEffect(() =>{
+    useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
-            if(user){
+            if (user) {
                 setUser(user);
             }
-            else{
+            else {
                 setUser({});
             }
             setIsLoading(false);
@@ -66,12 +56,12 @@ const useFirebase = () =>{
     const logOut = () => {
         setIsLoading(true);
         signOut(auth)
-        .then(() => {})
-        .finally(() => setIsLoading(false));
+            .then(() => { })
+            .finally(() => setIsLoading(false));
     };
 
 
-    return{
+    return {
         user,
         isLoading,
         error,
@@ -79,7 +69,7 @@ const useFirebase = () =>{
         logOut,
         signInWithPassword,
         logInWithPassword
-        
+
     }
 }
 

@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 // import { useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooke/useAuth';
 
 const Login = () => {
     const { user, signInUsingGoogle, signInWithPassword, logInWithPassword, error } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home';
+    const handleGoogleLogin = () => {
+        signInUsingGoogle()
+            .then(result => {
+                history.push(redirect_uri);
+                // setUser(result.user);
+            })
+        // .catch((error) => {
+        //     setError(error.message);
+        // })
+        // .catch((error) => {
+        //     setError(error.message);
+        // })
+        // .finally(() => setIsLoading(false));
+    }
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errormsg, setErrormsg] = useState("");
@@ -90,7 +108,7 @@ const Login = () => {
 
                 <p>-----------OR-----------</p>
                 {/* gmail login button */}
-                <button className="btn btn-primary mb-3" onClick={signInUsingGoogle}>Google Sign in</button>
+                <button className="btn btn-primary mb-3" onClick={handleGoogleLogin}>Google Sign in</button>
             </div>
             }
         </>
