@@ -2,11 +2,10 @@
 
 ### Live Site Link
 
-1. client side code github repository: [https://github.com/programming-hero-web-course1/]tourism-or-delivery-website-client-side-pmpalashmandal
-2. server side code github repository: [https://github.com/programming-hero-web-course1/]tourism-or-delivery-website-server-side-pmpalashmandal
-3. live website link: [https://service-provider-assignment-11.web.app/]
+1. client side code github repository: [https://github.com/programming-hero-web-course1/](https://github.com/programming-hero-web-course1/)
+2. server side code github repository: [https://github.com/programming-hero-web-course1/](https://github.com/programming-hero-web-course1/)
+3. live website link: [https://service-provider-assignment-11.web.app/](https://service-provider-assignment-11.web.app/)
 
-Firebase live site link: [https://health-care-b8ac1.web.app/](https://health-care-b8ac1.web.app/)
 
 ### Project Details
 Using ReactBootstrap Fremwork and Pure CSS in this project. Firebase Authentication using for login and registration. Firebase hosting used for hosting/deploy the live site. Mangodb server used for server and deploy it on heroku. Intrigrate gmail and password loging system. We using BrowserRouter and private router on this project. useAuth using for access user at any page on this project. Dynamic route and protect routr intrigrate in this project. Different componant/page using different page.
