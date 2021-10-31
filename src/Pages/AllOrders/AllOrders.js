@@ -5,7 +5,7 @@ const AllOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://polar-hamlet-97981.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data));
 
@@ -15,7 +15,7 @@ const AllOrders = () => {
     const handelDeleteOrder = id => {
         const proceed = window.confirm('Are you sure, you want to delete order?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://polar-hamlet-97981.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -28,6 +28,11 @@ const AllOrders = () => {
                     }
                 });
         }
+    }
+
+    // Handel order status update
+    const handelUpdateOrder = () => {
+
     }
     return (
         <div>
@@ -47,14 +52,18 @@ const AllOrders = () => {
 
                     <div>
                         {
-                            orders.map(order => <div className="m-2 p-4 rounded bg-info bg-opacity-25 w-100 mx-auto ">
-                                <h4> Order ID: {order._id} </h4>
+                            orders.map(order => <div className="m-2 p-4 rounded bg-info bg-opacity-10 w-100 mx-auto ">
+
+                                <h5><span className="text-primary fw-bolder">Hotel Name:</span> {order.ServiceName} </h5>
                                 <br />
-                                <h3> Service Name: {order.ServiceName} </h3>
+                                <h6><span className="text-primary fw-bolder">Booking by:</span> {order.userEmail} </h6>
                                 <br />
-                                <h4> Status: {order.orderStatus} </h4>
+                                <h6><span className="text-primary fw-bolder">Booking For:</span> {order.dateFrom} <span className="text-danger fw-bolder" >To</span> {order.dateTo}</h6>
                                 <br />
-                                <button className=" btn btn-danger" onClick={() => handelDeleteOrder(order._id)}>Delete</button></div>)
+                                <h6><span className="text-primary fw-bolder">Status:</span> {order.orderStatus} </h6>
+                                <br />
+                                <button className=" btn btn-danger fw-bold" onClick={() => handelDeleteOrder(order._id)}>Delete</button>
+                                <button className="btn btn-success m-2 fw-bold" onClick={() => handelUpdateOrder(order._id)}>Update Status</button></div>)
                         }
                     </div>
                 </div>

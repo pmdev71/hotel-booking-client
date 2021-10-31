@@ -7,8 +7,10 @@ import useAuth from '../../hooke/useAuth';
 
 const ServiceDetails = () => {
     const { user } = useAuth();
-    const addressRef = useRef();
+    const dateFromRef = useRef();
+    const dateToRef = useRef();
     const phoneRef = useRef();
+    const addressRef = useRef();
     const { serviceId } = useParams();
     const [services, setServices] = useState([])
     const servicee = services.filter(service => service._id === serviceId);
@@ -17,16 +19,18 @@ const ServiceDetails = () => {
     const orderStatus = 'Pending';
 
     useEffect(() => {
-        fetch("http://localhost:5000/offers")
+        fetch("https://polar-hamlet-97981.herokuapp.com/offers")
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
 
     const orderHandel = e => {
-        const address = addressRef.current.value;
+        const dateFrom = dateFromRef.current.value;
+        const dateTo = dateToRef.current.value;
         const phone = phoneRef.current.value;
-        const newOrder = { userEmail, address, phone, ServiceName, orderStatus };
-        fetch('http://localhost:5000/orders', {
+        const address = addressRef.current.value;
+        const newOrder = { userEmail, dateFrom, dateTo, phone, address, ServiceName, orderStatus };
+        fetch('https://polar-hamlet-97981.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,13 +61,24 @@ const ServiceDetails = () => {
                             <h5 className="card-title bg-warning fw-bold fs-3">{servicee[0]?.serviceName}</h5>
                             <p className="card-text fs-5">{servicee[0]?.moreDetails}</p>
                             <form onSubmit={orderHandel}>
-                                <input className="m-2 w-50" type="text" required placeholder="Address" ref={addressRef} />
+
+                                <h5 className="text-center">Booking From:</h5>
+                                <input className="mb-2 w-50" type="date" required placeholder="Booking From" ref={dateFromRef} />
                                 <br />
+                                <h5 className="text-center">Booking To:</h5>
+                                <input className="mb-2 w-50" type="date" required placeholder="Booking To" ref={dateToRef} />
+                                <br />
+
+                                <h5 className="text-center mt-2">Address:</h5>
+                                <input className="w-50" type="text" required placeholder="Your Address" ref={addressRef} />
+                                <br />
+
+                                <h5 className="text-center mt-2">Contact Number:</h5>
                                 <input className="w-50" type="number" required placeholder="Phone" ref={phoneRef} />
                                 <br />
-                                <button className="btn btn-primary w-25 m-2" type="submit">Place Order</button>
+                                <button className="btn btn-primary w-25 m-2 fw-bold" type="submit">Booking Now</button>
                             </form>
-                            <Link to="/home"><button className="btn btn-primary w-25">Back</button></Link>
+                            <Link to="/home"><button className="btn btn-primary w-25 fw-bold">Back</button></Link>
 
                         </div>
                     </div>

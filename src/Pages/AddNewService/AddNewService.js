@@ -13,7 +13,7 @@ const AddNewService = () => {
         const img = urlRef.current.value;
         const newService = { serviceName, details, moreDetails, img };
 
-        fetch('http://localhost:5000/offers', {
+        fetch('https://polar-hamlet-97981.herokuapp.com/offers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -31,17 +31,17 @@ const AddNewService = () => {
     }
     return (
         <div className="border rounded border-dark w-75 mx-auto m-5 p-5">
-            <h2 className="fw-bold p-2 mb-4 bg-secondary text-white">Add New Service</h2>
+            <h2 className="fw-bold p-2 mb-4 bg-secondary text-white">Add New Hotel</h2>
             <form onSubmit={handelAddService}>
-                <input className="w-50 mb-2" type="text" placeholder="Name" ref={nameRef} required />
+                <input className="w-50 mb-2" type="text" placeholder=" Hotel Name" ref={nameRef} required />
                 <br />
-                <input className="w-50 mb-2" type="text" placeholder="Short Info" ref={detailsRef} required />
+                <input className="w-50 mb-2" type="text" placeholder=" Short Info" ref={detailsRef} required />
                 <br />
-                <textarea className="w-50 mb-2" name="message" rows="8" placeholder="Long Details" ref={moreDetailsRef} required></textarea>
+                <textarea className="w-50 mb-2" name="message" rows="8" placeholder=" Long Details" ref={moreDetailsRef} required></textarea>
                 <br />
-                <input className="w-50 mb-2" type="url" placeholder="Image URL" ref={urlRef} required />
+                <input className="w-50 mb-2" type="url" placeholder=" Image URL" ref={urlRef} required />
                 <br />
-                <input className="w-25 btn btn-primary" type="submit" value="ADD" />
+                <input className="w-25 btn btn-primary fw-bold" type="submit" value="ADD" />
 
             </form>
 

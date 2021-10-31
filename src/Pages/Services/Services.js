@@ -7,7 +7,7 @@ const Services = () => {
 
     // load data and set data using useEffect
     useEffect(() => {
-        fetch("http://localhost:5000/offers")
+        fetch("https://polar-hamlet-97981.herokuapp.com/offers")
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -26,7 +26,7 @@ const Services = () => {
                     Loading...
                 </Button> :
                 <div className="w-75 mx-auto mt-4">
-                    <h2 className="fw-bold p-2 mb-4 bg-secondary text-white">Our Treatments/Services</h2>
+                    <h2 className="fw-bold p-2 mb-4 bg-secondary text-white">We Offers / Our Main Services</h2>
                     <Row xs={1} md={3} className="g-4">
                         {
                             // map services and call Service component

@@ -10,37 +10,23 @@ const MyCarousel = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100 img-fluid caruselImage"
-                        src="https://content.specsavers.com/anz/au/assets/img/eye_health/landing/eye-health_eyetest-banner-545x273.jpg"
+                        src="https://aceoasistravelblog.files.wordpress.com/2015/10/954773hotel-banner.jpg"
                         alt="First slide"
                     />
-                    <Carousel.Caption>
-                        <h3>Your Cataract Surgery</h3>
-                        <p>Removing Cloudy Vision Quickly and Painlessly.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100 caruselImage"
-                        src="https://cataractsurgeryca.com/wp-content/uploads/2020/01/Cataract-Surgery-banner-male.jpg"
+                        src="https://i.ytimg.com/vi/PA_ooTqMPOg/maxresdefault.jpg"
                         alt="Second slide"
                     />
-
-                    <Carousel.Caption>
-                        <h3>Dry Eye Treatment</h3>
-                        <p>Dry Eye Is More Common Than You Think!.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100 caruselImage"
-                        src="https://www.apollospectra.com/wp-content/uploads/2016/01/banner1-1032x272.png"
+                        src="https://images.yourstory.com/production/document_image/mystoryimage/3ks4f7ym-Book-Online-Hotels-at-affordable-price.jpg"
                         alt="Third slide"
                     />
-
-                    <Carousel.Caption>
-                        <h3>Premium Lens Implants</h3>
-                        <p>Finding the Lens That’s Right for You.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
         </div>

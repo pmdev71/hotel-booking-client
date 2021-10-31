@@ -6,6 +6,10 @@ import useAuth from '../../../hooke/useAuth';
 
 const Login = () => {
     const { user, signInUsingGoogle, signInWithPassword, logInWithPassword, error } = useAuth();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errormsg, setErrormsg] = useState("");
+    const [isNotLogin, setIsNotlogin] = useState(false);
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
@@ -24,12 +28,7 @@ const Login = () => {
         // .finally(() => setIsLoading(false));
     }
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errormsg, setErrormsg] = useState("");
-    const [isNotLogin, setIsNotlogin] = useState(false);
-    // const location = useLocation();
-    // const history = useHistory();
+
     const toggleLogin = e => {
         setIsNotlogin(e.target.checked);
     }
