@@ -9,7 +9,7 @@ const AllOrders = () => {
             .then(res => res.json())
             .then(data => setOrders(data));
 
-    }, []);
+    }, [orders]);
 
     // delete an order 
     const handelDeleteOrder = id => {
@@ -79,7 +79,11 @@ const AllOrders = () => {
                                 <h6><span className="text-primary fw-bolder">Status:</span> {order.orderStatus} </h6>
                                 <br />
                                 <button className=" btn btn-danger fw-bold" onClick={() => handelDeleteOrder(order._id)}>Delete</button>
-                                <button className="btn btn-success m-2 fw-bold" onClick={() => handelUpdateOrder(order._id)}>Update Status</button></div>)
+                                {
+                                    order.orderStatus === 'Pending' && <button className="btn btn-success m-2 fw-bold" onClick={() => handelUpdateOrder(order._id)}>Update Status</button>
+
+                                }
+                            </div>)
                         }
                     </div>
                 </div>
