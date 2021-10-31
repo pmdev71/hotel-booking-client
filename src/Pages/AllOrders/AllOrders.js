@@ -28,15 +28,31 @@ const AllOrders = () => {
                     }
                 });
         }
-    }
+    };
 
-    // Handel order status update
-    const handelUpdateOrder = () => {
+    // Handel order status update  ????
+    const handelUpdateOrder = id => {
+        const proceed = window.confirm('Are you sure, you want to Accept order?');
+        if (proceed) {
+            const url = `https://polar-hamlet-97981.herokuapp.com/orders/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert('Order Accepted');
+                    setOrders(orders);
+                });
+        }
+    };
 
-    }
     return (
         <div>
             {orders.length === 0 ?
+                // loading button
                 <Button className="my-5 " variant="primary">
                     <Spinner
                         as="span"

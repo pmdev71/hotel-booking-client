@@ -8,7 +8,7 @@ const Login = () => {
     const { user, signInUsingGoogle, signInWithPassword, logInWithPassword, error } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errormsg, setErrormsg] = useState("");
+    const [errormsg, setErrormsg] = useState('');
     const [isNotLogin, setIsNotlogin] = useState(false);
     const location = useLocation();
     const history = useHistory();

@@ -27,7 +27,6 @@ const Header = () => {
                             {user.email &&
                                 <Nav.Link className="bg-success rounded fw-bold text-white me-1 mb-1" as={Link} to="/add-new-service">Add New Hotel</Nav.Link>
                             }
-                            <Nav.Link className="bg-success rounded fw-bold text-white me-1 mb-1" as={Link} to="/about">About</Nav.Link>
                             <Nav.Link className="bg-success rounded fw-bold text-white me-1 mb-1" as={Link} to="/contact">Contact</Nav.Link>
 
                             {

@@ -5,7 +5,7 @@ const AddNewService = () => {
     const detailsRef = useRef();
     const moreDetailsRef = useRef();
     const urlRef = useRef();
-
+    // add a new service
     const handelAddService = e => {
         const serviceName = nameRef.current.value;
         const details = detailsRef.current.value;

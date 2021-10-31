@@ -5,6 +5,7 @@ import useAuth from '../../hooke/useAuth';
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
+    // filter order by user mail
     const myOrderr = orders.filter(order => order.userEmail === user.email);
 
     useEffect(() => {
@@ -13,7 +14,7 @@ const MyOrder = () => {
             .then(data => setOrders(data));
     }, []);
 
-    // delete an order 
+    // delete an order functin
     const handelDeleteOrder = id => {
         const proceed = window.confirm('Are you sure, you want to delete order?');
         if (proceed) {
